@@ -31,5 +31,16 @@
       "link linkedin"
     ],
     "bio": "biografia tontorrona"
+  },
+  {
+    "id": 13,
+    "nombre": "link 2",
+    "rol": "rol link",
+    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
+    "video": "../Recursos/video.mp4",
+    "etiquetas": [
+      "link link"
+    ],
+    "bio": "link bio"
   }
 ]
