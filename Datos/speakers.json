@@ -1,16 +1,5 @@
 [
   {
-    "id": 6,
-    "nombre": "alcaro",
-    "rol": "aaaaaaaaaa",
-    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
-    "video": "../Recursos/video.mp4",
-    "etiquetas": [
-      "aaaaaaaa"
-    ],
-    "bio": "aaaaaaaaaa"
-  },
-  {
     "id": 7,
     "nombre": "jesus",
     "rol": "andaluz",
