@@ -26,5 +26,16 @@
       "aaaa"
     ],
     "bio": "aaaaa"
+  },
+  {
+    "id": 5,
+    "nombre": "diego",
+    "rol": "payo",
+    "imagenFondo": "../Imagenes/IMAGEN DEFINITIVA.jpeg",
+    "video": "../Recursos/video.mp4",
+    "etiquetas": [
+      "aaaa"
+    ],
+    "bio": "aaaaa"
   }
 ]
