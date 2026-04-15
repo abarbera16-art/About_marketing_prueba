@@ -62,7 +62,7 @@ async function cargarLista() {
         });
     } catch (e) {
         console.error(e);
-        listContainer.innerHTML = "❌ Error al cargar lista. Revisa el Token.";
+        listContainer.innerHTML = "❌ Error al cargar lista. Revisa el Token y la consola.";
     }
 }
 
@@ -110,6 +110,9 @@ document.getElementById('add-speaker-form').addEventListener('submit', async fun
             alert("✅ ¡Ponente añadido a GitHub!");
             this.reset();
             cargarLista(); 
+        } else {
+            const err = await putRes.json();
+            alert("❌ GitHub rechazó el archivo: " + err.message);
         }
     } catch (error) {
         alert("❌ Error: " + error.message);
@@ -147,8 +150,11 @@ window.eliminarPonente = async function(id) {
         if (putRes.ok) {
             alert("🗑️ Ponente eliminado.");
             cargarLista();
+        } else {
+            const err = await putRes.json();
+            alert("❌ No se pudo eliminar: " + err.message);
         }
     } catch (e) {
-        alert("❌ Error al eliminar.");
+        alert("❌ Error de red al eliminar.");
     }
 };
