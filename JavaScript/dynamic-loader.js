@@ -24,15 +24,19 @@ async function initApp() {
 }
 
 function createSpeakerCard(p) {
-    // 1. Escudo para las etiquetas (si no hay, creamos un array vacío)
     const etiquetas = p.etiquetas || [];
     const tagsHTML = etiquetas.map(t => `<li class="tag">${t}</li>`).join('');
 
-    // 2. ESCUDO MÁXIMO PARA REDES (Optional Chaining ?.)
-    // El símbolo "?." le dice a JS: "Si existe redes, busca linkedin. Si no existe, no des error, pon un #"
-    const linkedin = p.redes?.linkedin || '#';
-    const instagram = p.redes?.instagram || '#';
-    const mostrarRedes = p.redes ? 'block' : 'none';
+    // Comprobamos si existen las redes y si no están vacías
+    const linkIn = p.redes?.linkedin;
+    const linkIg = p.redes?.instagram;
+
+    // Si hay enlace, mostramos el botón. Si está vacío o no existe, lo ocultamos ('none')
+    const displayIn = (linkIn && linkIn !== "") ? "inline-block" : "none";
+    const displayIg = (linkIg && linkIg !== "") ? "inline-block" : "none";
+    
+    // Si no tiene ninguna red social en absoluto, ocultamos todo el contenedor
+    const mostrarContenedorRedes = (displayIn === "none" && displayIg === "none") ? "none" : "block";
 
     return `
         <article class="speaker-card">
@@ -54,9 +58,10 @@ function createSpeakerCard(p) {
                 <p class="speaker-role">${p.rol}</p>
                 <ul class="speaker-tags">${tagsHTML}</ul>
                 <p class="speaker-bio">${p.bio}</p>
-                <div class="speaker-socials" style="display: ${mostrarRedes};">
-                    <a href="${linkedin}" target="_blank" class="social-link">LinkedIn</a>
-                    <a href="${instagram}" target="_blank" class="social-link">Instagram</a>
+                
+                <div class="speaker-socials" style="display: ${mostrarContenedorRedes}; margin-top: 15px;">
+                    <a href="${linkIn}" target="_blank" class="social-link" style="display: ${displayIn}; margin-right: 10px;">LinkedIn</a>
+                    <a href="${linkIg}" target="_blank" class="social-link" style="display: ${displayIg};">Instagram</a>
                 </div>
             </div>
         </article>
